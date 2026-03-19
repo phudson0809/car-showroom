@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classics & Icons Garage</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="index.js" defer></script>
+    <script src="https://kit.fontawesome.com/7bca18a533.js" crossorigin="anonymous"></script>
+</head>
+<body id="top">
+    <div class="splash">
+        <img src="./Assets/splash.jpg" alt="CIG Splash Image" class="splash__bg">
+
+        <div class="splash__center">
+            <img src="./Assets/Refined CIG Garage l.png" alt="CIG Logo" class="splash__logo">
+
+            <h1 class="splash__title">Welcome to Classics & Icons Garage</h1>
+            <p class="splash__subtitle">Your classic car journey starts now</p>
+        </div>
+    </div>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav__content">
+                <button class="btn__menu" onclick="openMenu()">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <div class="menu__backdrop" onclick="closeMenu()"></div>
+
+                <div class="mobile__menu">
+                    <button class="btn__close" onclick="closeMenu()">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+
+                    <ul class="mobile__menu--links">
+                        <li><a href="#top" class="mobile__menu--link" onclick="closeMenu()">Home</a></li>
+                        <li><a href="#featured" class="mobile__menu--link" onclick="closeMenu()">Featured Cars</a></li>
+                        <li><a href="#" class="mobile__menu--link" onclick="closeMenu()">My Garage</a></li>
+                        <li><a href="#" class="mobile__menu--link" onclick="closeMenu()">Contact</a></li>
+                        <li><a href="#" class="mobile__menu--link" onclick="closeMenu()">About</a></li>
+                    </ul>
+                </div>
+
+                <figure class="brand__logo">
+                    <img class="brand__logo--img" src="./Assets/Refined CIG Garage l.png" alt="Classics & Icons Garage Logo">
+                </figure>
+
+                <ul class="nav__links">
+                    <li class="nav__item">
+                        <a href="#" class="nav__link">Home</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#" class="nav__link">Featured Cars</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#" class="nav__link">My Garage</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#" class="nav__link">Contact</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#" class="nav__link">About</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <section class="hero">
+            <div class="hero__content">
+                <h1 class="hero__title">Welcome to the Garage</h1>
+                <p class="hero__subtitle">Explore a curated collection of classics and icons</p>
+
+                <form class="hero__search">
+                    <div class="search__wrapper">
+                        <input 
+                            type="text"
+                            class="search__input"
+                            placeholder="search by make, model, keyword"
+                        >
+                        <button type="submit" class="search__button">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </header>
+    
+    <main>
+        <section class="featured" id="featured">
+            <div class="container">
+                <header class="featured__header">
+                    <h2 class="featured__title">Featured Classics</h2>
+                    <p class="featured__microcopy">Three hand-picked icons worth your attention.</p>
+                </header>
+
+                <div class="featured__grid">
+                    <article class="featured__card">
+                        <div class="featured__img--wrapper">
+                            <img src="" alt="" class="featured__img">
+                        </div>
+                        <div class="featured__info">
+                            <h3 class="featured__car--title"></h3>
+                            <p class="featured__description"></p>
+                            <button class="featured__btn">View Details</button>
+                        </div>
+                    </article>
+                    <article class="featured__card">
+                        <div class="featured__img--wrapper">
+                            <img src="" alt="" class="featured__img">
+                        </div>
+                        <div class="featured__info">
+                            <h3 class="featured__car--title"></h3>
+                            <p class="featured__description"></p>
+                            <button class="featured__btn">View Details</button>
+                        </div>
+                    </article>
+                    <article class="featured__card">
+                        <div class="featured__img--wrapper">
+                            <img src="" alt="" class="featured__img">
+                        </div>
+                        <div class="featured__info">
+                            <h3 class="featured__car--title"></h3>
+                            <p class="featured__description"></p>
+                            <button class="featured__btn">View Details</button>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="inventory">
+            <div class="container">
+                <div class="inventory__header">
+                    <div class="inventory__heading">
+                        <h2 class="inventory__title">Explore the Collection</h2>
+                        <p class="inventory__sub--title">Sort through our complete inventory</p>
+                    </div>
+                    <div class="inventory__sort">
+                        <label for="sort-select" class="inventory__sort-label">Sort By:</label>
+                        <select id="sort-select" class="inventory__sort-select">
+                            <option value="az">A – Z</option>
+                            <option value="za">Z – A</option>
+                            <option value="year-oldest">Model Year: Oldest</option>
+                            <option value="year-newest">Model Year: Newest</option>
+                            <option value="price-low">Price: Low – High</option>
+                            <option value="price-high">Price: High – Low</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="inventory__grid">
+                    <article class="inventory__card">
+                        <div class="inventory__img--wrapper">
+                            <img src="" alt="" class="inventory__img">
+                        </div>
+                        <div class="inventory__info">
+                            <h3 class="inventory__car--title"></h3>
+                            <ul class="inventory__specs">
+                                <li class="inventory__spec mileage"></li>
+                                <li class="inventory__spec transmission"></li>
+                                <li class="inventory__spec engine"></li>
+                            </ul>
+                            <p class="inventory__price"></p>
+                            <button class="inventory__btn">View Details</button>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer__container">
+            <div class="footer__top">
+                <figure class="footer__brand">
+                    <img class="footer__logo" src="./Assets/Refined CIG Garage l.png" alt="CIG logo"></div>
+                </figure>
+                <div class="footer__links">
+                    <ul class="footer__links--list">
+                        <li><a href="#" class="footer__nav-link">Home</a></li>
+                        <li><a href="#" class="footer__nav-link">Featured Cars</a></li>
+                        <li><a href="#" class="footer__nav-link">My Garage</a></li>
+                        <li><a href="#" class="footer__nav-link">Contact</a></li>
+                        <li><a href="#" class="footer__nav-link">About</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p class="footer__copyright">&copy; Patrick Hudson 2026</p>
+            </div>
+        </div>
+    </footer>
+    <div class="modal" id="car-modal">
+    <div class="modal__backdrop"></div>
+    <div class="modal__content">
+        <button class="modal__close" id="modal-close">&times;</button>
+        <img src="" alt="" class="modal__img" id="modal-img">
+        <h3 class="modal__title" id="modal-title"></h3>
+        <p class="modal__meta" id="modal-meta"></p>
+        <p class="modal__price" id="modal-price"></p>
+    </div>
+    </div>
+</body>
+</html>
