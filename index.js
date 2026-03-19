@@ -1,14 +1,16 @@
-// ------------------------------------------------------
-// 1. Splash Screen
-// ------------------------------------------------------
+// 
+// Splash Screen
+// 
+
 window.addEventListener("load", () => {
     const splash = document.querySelector(".splash");
     setTimeout(() => splash?.classList.add("fade--out"), 2600);
 });
 
-// ------------------------------------------------------
-// 2. Mobile Menu
-// ------------------------------------------------------
+// 
+// Mobile Menu
+// 
+
 function openMenu() {
     document.body.classList.add("menu--open");
 }
@@ -17,9 +19,10 @@ function closeMenu() {
     document.body.classList.remove("menu--open");
 }
 
-// ------------------------------------------------------
-// 3. CLASSIC INVENTORY (Manual Data)
-// ------------------------------------------------------
+// 
+// CLASSIC INVENTORY (Manual Data)
+// 
+
 let classicInventory = [
     {
         year: 1974, make: "BMW", model: "2002",
@@ -93,9 +96,10 @@ let classicInventory = [
     }
 ];
 
-// ------------------------------------------------------
-// 4. MODERN EXOTICS (Sample VINs for API Fetch)
-// ------------------------------------------------------
+// 
+// MODERN EXOTICS (Sample VINs for API Fetch)
+// 
+
 const modernVINs = [
     "ZHWUF4ZF0LLA12345", // Huracán
     "ZFF79ALA0L0234567", // Ferrari 488
@@ -128,9 +132,10 @@ const exoticImages = {
     "1G1Y72D40M5102345": "./Assets/Corvette.jpg"
 };
 
-// ------------------------------------------------------
-// 5. Fetch + Normalize VPIC Data
-// ------------------------------------------------------
+// 
+// Fetch + Normalize VPIC Data
+// 
+
 async function fetchCarFromVIN(vin) {
     const url = `https://vpic.nhtsa.dot.gov/api/vehicles/DecodeVinValues/${vin}?format=json`;
 
@@ -139,7 +144,6 @@ async function fetchCarFromVIN(vin) {
         const data = await res.json();
         const d = data.Results[0];
 
-        // Clean engine displacement
         let displacement = d.DisplacementL ? Number(d.DisplacementL) : null;
         let roundedDisplacement = displacement ? displacement.toFixed(1) : null;
 
@@ -161,24 +165,27 @@ async function fetchCarFromVIN(vin) {
 }
 
 // Generate realistic exotic car prices
+
 function generateExoticPrice() {
-    const min = 120000;
-    const max = 350000;
+    const min = 60000;
+    const max = 200000;
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-// ------------------------------------------------------
-// 6. Fetch All Modern Cars
-// ------------------------------------------------------
+// 
+// Fetch All Modern Cars
+// 
+
 async function fetchModernCars() {
     const promises = modernVINs.map(vin => fetchCarFromVIN(vin));
     const results = await Promise.all(promises);
     return results.filter(car => car !== null);
 }
 
-// ------------------------------------------------------
-// 7. Render Inventory
-// ------------------------------------------------------
+// 
+// Render Inventory
+// 
+
 function renderInventory(cars) {
     const grid = document.querySelector(".inventory__grid");
     grid.innerHTML = "";
@@ -207,9 +214,10 @@ function renderInventory(cars) {
     });
 }
 
-// ------------------------------------------------------
-// 8. Modal Logic
-// ------------------------------------------------------
+// 
+// Modal Logic
+// 
+
 function openModal(car) {
     const modal = document.getElementById("car-modal");
     modal.classList.add("modal--open");
@@ -224,9 +232,10 @@ document.getElementById("modal-close").addEventListener("click", () => {
     document.getElementById("car-modal").classList.remove("modal--open");
 });
 
-// ------------------------------------------------------
-// 9. Sorting
-// ------------------------------------------------------
+// 
+// Sorting
+// 
+
 function sortInventory(cars, type) {
     let sorted = [...cars];
 
@@ -259,9 +268,10 @@ document.getElementById("sort-select").addEventListener("change", (e) => {
     renderInventory(sorted);
 });
 
-// ------------------------------------------------------
-// 10. Search
-// ------------------------------------------------------
+// 
+// Search
+// 
+
 document.querySelector(".hero__search").addEventListener("submit", (e) => {
     e.preventDefault();
 
@@ -273,15 +283,15 @@ document.querySelector(".hero__search").addEventListener("submit", (e) => {
 
     renderInventory(filtered);
 
-    // Smooth scroll to inventory section
     document.querySelector(".inventory").scrollIntoView({
         behavior: "smooth"
     });
 });
 
-// ------------------------------------------------------
-// 11. Load Everything
-// ------------------------------------------------------
+// 
+// Load Everything
+// 
+
 let fullInventory = [];
 
 async function loadInventory() {
@@ -294,9 +304,10 @@ async function loadInventory() {
 
 loadInventory();
 
-// ------------------------------------------------------
-// 12. Featured Section (Classic Only)
-// ------------------------------------------------------
+//
+// Featured Section (Classic Only)
+// 
+
 function loadFeatured() {
     const featuredCars = [
         classicInventory.find(c => c.year === 1967 && c.make === "Ford"),
